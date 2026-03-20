@@ -19,7 +19,7 @@ from tkinter import ttk
 
 from . import config
 from .sidebar import Sidebar
-from .tools import BaseConverterFrame, DataSlicerFrame, DataDiffFrame
+from .tools import BaseConverterFrame, DataSlicerFrame, DataDiffFrame, BitExtractorFrame
 
 
 class ICToolbox(tk.Tk):
@@ -81,6 +81,8 @@ class ICToolbox(tk.Tk):
             self._show_data_slicer()
         elif idx == 2:
             self._show_data_diff()
+        elif idx == 3:
+            self._show_bit_extractor()
 
     def _show_base_converter(self):
         if not hasattr(self, "_base_converter"):
@@ -99,6 +101,12 @@ class ICToolbox(tk.Tk):
             self._data_diff = DataDiffFrame(self.content)
         self._data_diff.pack(fill=tk.BOTH, expand=True)
         self.current_tool = self._data_diff
+
+    def _show_bit_extractor(self):
+        if not hasattr(self, "_bit_extractor"):
+            self._bit_extractor = BitExtractorFrame(self.content)
+        self._bit_extractor.pack(fill=tk.BOTH, expand=True)
+        self.current_tool = self._bit_extractor
 
 
 if __name__ == "__main__":

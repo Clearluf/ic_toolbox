@@ -13,6 +13,7 @@ class Sidebar(tk.Frame):
         ("⇄", "进制转换",   "Base Converter"),
         ("⊡", "数据切片",   "Data Slicer"),
         ("≠", "数据比对",   "Data Diff"),
+        ("◈", "位字段提取", "Bit Extractor"),
         ("⊟", "寄存器映射", "Reg Map  (即将推出)"),
         ("✎", "断言模板",   "SVA Template  (即将推出)"),
     ]
@@ -44,7 +45,7 @@ class Sidebar(tk.Frame):
                 bg=config.BG_SIDEBAR, fg=config.FG_MUTED).pack(anchor=tk.W, padx=16)
 
         for i, (icon, name, sub) in enumerate(self.TOOLS):
-            available = (i in (0, 1, 2))
+            available = (i in (0, 1, 2, 3))
             btn_frame = tk.Frame(self, bg=config.BG_SIDEBAR, cursor="hand2" if available else "arrow")
             btn_frame.pack(fill=tk.X, pady=2)
 
