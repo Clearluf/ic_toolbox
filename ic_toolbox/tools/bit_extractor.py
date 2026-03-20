@@ -154,10 +154,10 @@ class BitExtractorFrame(tk.Frame):
         # 快捷按钮
         tk.Label(row3, text="  快捷:", font=("Consolas", 9),
                 bg=config.BG_CARD, fg=config.FG_MUTED).pack(side=tk.LEFT)
-        for hi, lo in [("31:24", 31, 24), ("23:16", 23, 16), ("15:8", 15, 8), ("7:0", 7, 0)]:
+        for label, hi, lo in [("31:24", 31, 24), ("23:16", 23, 16), ("15:8", 15, 8), ("7:0", 7, 0)]:
             tk.Button(
-                row3, text=hi,
-                command=lambda h=hi: self._set_range(h),
+                row3, text=label,
+                command=lambda h=label: self._set_range(h),
                 bg=config.BG_INPUT, fg=config.FG_SECONDARY,
                 font=("Consolas", 8), relief=tk.FLAT,
                 padx=6, pady=2, cursor="hand2",
